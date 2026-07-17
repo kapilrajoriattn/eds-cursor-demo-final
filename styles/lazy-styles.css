@@ -1,1 +1,72 @@
 /* add global styles that can be loaded post LCP here */
+
+/* ── Article sidebar layout ─────────────────────────────────────────────── */
+
+/* Activated when any section on the page carries the "sidebar" style class. */
+
+/* Section Metadata block: style → sidebar                                  */
+
+@media (width >= 900px) {
+  main:has(.section.sidebar) {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    column-gap: 40px;
+  }
+
+  /* hero and metadata always span the full width */
+  main:has(.section.sidebar) > .section.hero,
+  main:has(.section.sidebar) > .section.metadata {
+    grid-column: 1 / -1;
+  }
+
+  /* everything else goes in the left column */
+  main:has(.section.sidebar) > .section:not(.hero, .sidebar, .metadata) {
+    grid-column: 1;
+  }
+
+  /* sidebar occupies the right column, sticky so it stays visible while scrolling */
+  main:has(.section.sidebar) > .section.sidebar {
+    grid-column: 2;
+    grid-row: 2 / span 10;
+    align-self: start;
+    position: sticky;
+    top: 80px;
+  }
+}
+
+/* sidebar section typography */
+.section.sidebar h2,
+.section.sidebar h3 {
+  font-size: var(--heading-font-size-s);
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-brand, currentcolor);
+}
+
+.section.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.section.sidebar ul li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--light-color, #eee);
+}
+
+.section.sidebar ul li a {
+  display: block;
+  font-weight: 600;
+  color: var(--text-color);
+  text-decoration: none;
+  margin-bottom: 0.2rem;
+}
+
+.section.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+.section.sidebar ul li span {
+  font-size: var(--body-font-size-xs, 0.75rem);
+  color: #666;
+}
