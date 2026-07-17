@@ -63,10 +63,6 @@ footer .footer strong {
 @media (width >= 900px) {
   footer .footer > div {
     padding: 40px 32px 24px;
-  }
-
-  /* wrap all non-last sections in a flex row */
-  footer .footer > div {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
