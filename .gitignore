@@ -8,6 +8,12 @@ helix-importer-ui
 *.bak
 .idea
 
+# Import/migration temporary artifacts
+import-work/
+drafts/
+us/en/magazine/images/
+playwright-report/
+
 # Ensure these files are tracked
 !CLAUDE.md
 !AGENTS.md
