@@ -13,8 +13,71 @@ footer .footer p {
   margin: 0;
 }
 
+/* lay out content sections side-by-side on desktop */
+footer .footer > div > .section {
+  margin: 0;
+  padding: 0;
+}
+
+/* copyright section sits below everything */
+footer .footer > div > .section:last-child {
+  border-top: 1px solid #d0d0d0;
+  margin-top: 24px;
+  padding-top: 16px;
+}
+
+/* constrain logo */
+footer .footer img {
+  width: 128px;
+  height: auto;
+  display: block;
+}
+
+/* nav links in footer */
+footer .footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+
+footer .footer ul li {
+  margin-bottom: 4px;
+}
+
+footer .footer a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+footer .footer a:hover {
+  text-decoration: underline;
+}
+
+/* "Follow Us" heading */
+footer .footer strong {
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 @media (width >= 900px) {
   footer .footer > div {
     padding: 40px 32px 24px;
+  }
+
+  /* wrap all non-last sections in a flex row */
+  footer .footer > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  footer .footer > div > .section {
+    flex: 1 1 auto;
+  }
+
+  /* copyright spans full width */
+  footer .footer > div > .section:last-child {
+    flex: 0 0 100%;
   }
 }
